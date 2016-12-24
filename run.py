@@ -80,6 +80,10 @@ def add():
                 to_ins.save()
             to_id = to_ins.id
 
+            if any([_ in u'！，。？（） 【】' for _ in [from_word, to_word]]):
+                from_id = to_id
+                from_word = to_word
+                continue
             try:
                 link_ins = Link.get(Link.from_word == from_id, Link.to_word == to_id)
                 link_ins.count += 1
@@ -88,6 +92,7 @@ def add():
                 Link(from_word=from_id, to_word=to_id, count=1).save()
 
             from_id = to_id
+            from_word = to_word
 
     return response(data=get_all_data())
 

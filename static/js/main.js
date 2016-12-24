@@ -31,6 +31,21 @@ require(['require',
                 highlight:'#d2811c',
                 hover: '#d2189e'
             }
+        },
+        layout: {
+            improvedLayout:false
+        },
+        physics: {
+            stabilization: false,
+            barnesHut: {
+                gravitationalConstant: -80000,
+                springConstant: 0.1,
+                springLength: 200
+            }
+        },
+        interaction: {
+            tooltipDelay: 200,
+            hideEdgesOnDrag: true
         }
     };
     var network;
