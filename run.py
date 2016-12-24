@@ -92,6 +92,22 @@ def add():
     return response(data=get_all_data())
 
 
+@app.route('/clear')
+def clear():
+    Link.delete().execute()
+    Word.delete().execute()
+    return response(data=get_all_data())
+
+
+@app.route('/delete', methods=['POST'])
+def delete():
+    word_id = request.form.get('data')
+    Link.delete().where(Link.from_word == word_id).execute()
+    Link.delete().where(Link.to_word == word_id).execute()
+    Word.delete().where(Word.id == word_id).execute()
+    return response(data=get_all_data())
+
+
 @app.route('/load', methods=['GET'])
 def load():
     return response(data=get_all_data())
