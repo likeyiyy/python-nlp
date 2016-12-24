@@ -32,21 +32,21 @@ require(['require',
                 hover: '#d2189e'
             }
         },
-        layout: {
-            improvedLayout:false
-        },
-        physics: {
-            stabilization: false,
-            barnesHut: {
-                gravitationalConstant: -80000,
-                springConstant: 0.1,
-                springLength: 200
-            }
-        },
-        interaction: {
-            tooltipDelay: 200,
-            hideEdgesOnDrag: true
-        }
+        // layout: {
+        //     improvedLayout:false
+        // },
+        // physics: {
+        //     stabilization: false,
+        //     barnesHut: {
+        //         gravitationalConstant: -80000,
+        //         springConstant: 0.1,
+        //         springLength: 200
+        //     }
+        // },
+        // interaction: {
+        //     tooltipDelay: 200,
+        //     hideEdgesOnDrag: true
+        // }
     };
     var network;
     var allNodes;
