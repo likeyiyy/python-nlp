@@ -117,6 +117,25 @@ def delete():
 def load():
     return response(data=get_all_data())
 
+@app.route('/new', methods=['GET', 'POST'])
+def new():
+    if request.method == 'GET':
+        return render_template('word.html')
+    else:
+        data = getdata()
+        try:
+            from_ins = Word.get(Word.word == data.get('name'))
+            from_ins.count += 1
+            if from_ins.trans and data.get('trans') not in from_ins.trans:
+                from_ins.trans += ',' + data.get('trans')
+            from_ins.save()
+        except Word.DoesNotExist:
+            from_ins = Word(word=data.get('name'), trans=data.get('trans'), count=1)
+            from_ins.save()
+        return render_template('word.html')
+
+
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port='7000')

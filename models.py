@@ -13,6 +13,8 @@ class BaseModel(Model):
 class Word(BaseModel):
     word = CharField(null=True, unique=True)
     count = IntegerField(default=0)
+    trans = CharField(null=True)
+
 
 
 class Link(BaseModel):

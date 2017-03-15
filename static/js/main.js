@@ -157,6 +157,7 @@ require(['require',
     var $submit = $element.find('input[type="submit"]');
     var $clear = $element.find('input[value="clear"]');
     var $input = $element.find('input[name="words"]');
+    var $trans = $element.find('input[name="trans"]');
     $clear.on('click', function () {
         $.ajax({
             url: "/clear"
@@ -167,12 +168,13 @@ require(['require',
     $submit.on('click', function () {
         $.ajax({
             method: "POST",
-            url: "/add",
+            url: "/new",
             data: {
-                data: $input.val()
+                data: JSON.stringify({
+                    name: $input.val(),
+                    trans: $trans.val()
+                })
             }
-        }).then(function (res) {
-            renderVis(res);
         });
     });
 
