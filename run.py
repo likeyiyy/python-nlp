@@ -134,6 +134,14 @@ def new():
             from_ins.save()
         return render_template('word.html')
 
+@app.route('/copy', methods=['GET', 'POST'])
+def _copy():
+    if request.method == 'GET':
+        sqls = [_ for _ in Sqls.select()]
+        return render_template('word.html', sqls=sqls)
+    else:
+        pass
+
 
 
 

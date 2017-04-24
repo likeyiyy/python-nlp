@@ -15,7 +15,8 @@ class Word(BaseModel):
     count = IntegerField(default=0)
     trans = CharField(null=True)
 
-
+class Sqls(BaseModel):
+    sql = TextField(null=True)
 
 class Link(BaseModel):
     from_word = ForeignKeyField(Word, related_name='from')
