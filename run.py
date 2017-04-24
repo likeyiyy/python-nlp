@@ -138,6 +138,7 @@ def new():
             from_ins.save()
         return render_template('word.html')
 
+
 @app.route('/copy', methods=['GET', 'POST'])
 def _copy():
     if request.method == 'GET':
@@ -146,7 +147,7 @@ def _copy():
     else:
         data = getdata()
         Sqls(sql=data.get('sql')).save()
-        return redirect(url_for('copy'))
+        return Response()
 
 
 
