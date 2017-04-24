@@ -143,7 +143,7 @@ def _copy():
         data = getdata()
         Sqls(sql=data.get('sql')).save()
         sqls = [_ for _ in Sqls.select()]
-        return render_template('copy.html', sqls=sqls)
+        return Response()
 
 
 
