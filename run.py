@@ -140,7 +140,10 @@ def _copy():
         sqls = [_ for _ in Sqls.select()]
         return render_template('copy.html', sqls=sqls)
     else:
-        pass
+        data = getdata()
+        Sqls(sql=data.get('sql')).save()
+        sqls = [_ for _ in Sqls.select()]
+        return render_template('copy.html', sqls=sqls)
 
 
 
