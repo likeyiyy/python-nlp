@@ -155,7 +155,6 @@ require(['require',
     var $element = $(document);
     var $nlp = $element.find('#pythonnlp');
     var $submit = $element.find('input[type="submit"]');
-    var $copysubmit = $element.find('input[value="copy"]');
     var $clear = $element.find('input[value="clear"]');
     var $input = $element.find('input[name="words"]');
     var $textarea = $element.find('textarea[name="sql"]');
