@@ -138,7 +138,7 @@ def new():
 def _copy():
     if request.method == 'GET':
         sqls = [_ for _ in Sqls.select()]
-        return render_template('word.html', sqls=sqls)
+        return render_template('copy.html', sqls=sqls)
     else:
         pass
 
