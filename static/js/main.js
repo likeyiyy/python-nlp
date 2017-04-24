@@ -155,8 +155,10 @@ require(['require',
     var $element = $(document);
     var $nlp = $element.find('#pythonnlp');
     var $submit = $element.find('input[type="submit"]');
+    var $copysubmit = $element.find('input[value="copy"]');
     var $clear = $element.find('input[value="clear"]');
     var $input = $element.find('input[name="words"]');
+    var $textarea = $element.find('textarea[name="sql"]');
     var $trans = $element.find('input[name="trans"]');
     $clear.on('click', function () {
         $.ajax({
@@ -173,6 +175,17 @@ require(['require',
                 data: JSON.stringify({
                     name: $input.val(),
                     trans: $trans.val()
+                })
+            }
+        });
+    });
+    $copysubmit.on('click', function () {
+        $.ajax({
+            method: "POST",
+            url: "/copy",
+            data: {
+                data: JSON.stringify({
+                    sql: $textarea.val()
                 })
             }
         });
