@@ -12,9 +12,9 @@
         <div>
             <div>
                 <div>
-                    <label>Sqls</label><textarea rows="3" cols="20"></textarea>
+                    <label>Sqls</label><textarea rows="3" cols="50" name="sql"></textarea>
                 </div>
-                <input type="submit" value="Add">
+                <input type="submit" value="copy">
                 {% for sql in sqls %}
                   <p>{{ sql.sql }}</p>
                 {% endfor %}
