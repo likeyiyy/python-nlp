@@ -4,8 +4,12 @@
 from flask import Flask
 from flask import Response
 import json
+
+from flask import redirect
 from flask import render_template
 from flask import request
+from flask import url_for
+
 from models import *
 
 app = Flask(__name__)
@@ -142,8 +146,7 @@ def _copy():
     else:
         data = getdata()
         Sqls(sql=data.get('sql')).save()
-        sqls = [_ for _ in Sqls.select()]
-        return Response()
+        return redirect(url_for('copy'))
 
 
 
